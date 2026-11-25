@@ -29,7 +29,7 @@ El acceso a la información se prevé como un complemento de esta estructura, a 
 
 ## 1.3. Estructura de paquetes y clases
 
-Se propone la siguiente organización inicial del código Java, basada en la estructura descrita en el análisis:
+Se propone la siguiente organización inicial del código Java
 
 ```text
 GestionSocios/
@@ -72,7 +72,6 @@ Se prevé que la aplicación Java se comunique con MySQL mediante JDBC, la API e
 
 La idea es que la gestión de la conexión se concentre en la clase `ConexionBD`, dentro del paquete `database`, para que el resto de la estructura pueda acceder a la base de datos sin duplicar esa responsabilidad. Los parámetros de conexión —como la dirección del servidor, el nombre de la base de datos, el usuario y la contraseña— se definirán cuando se determine la configuración del entorno de desarrollo.
 
-En este documento no se implementa la conexión ni se especifica ningún valor para esos parámetros.
 
 ## 1.5. Base de datos
 
