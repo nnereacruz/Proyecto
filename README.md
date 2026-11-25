@@ -89,7 +89,7 @@ Estos son los nombres y las rutas reales del código. El documento de análisis 
    - **`tablas_gestion_socios.sql` (raíz): esquema de referencia.** Crea `usuario`, `socio` y `donacion` con los campos del modelo descrito en el análisis (`dni`, `email`, `importe`, `concepto`, entre otros). Al coincidir con el PDF, es el archivo que debe utilizarse como punto de partida mientras el equipo no acuerde lo contrario.
    - **`Gestor_ONG/database/ong.sql`**: esquema aportado con el proyecto Java. Crea la base de datos `gestor_ong`, sus tablas y datos de prueba, e incluye elementos que no aparecen en el análisis, como un campo `rol` de usuario y donaciones sin socio asociado. Debe revisarse antes de usar; no debe importarse junto con el esquema de referencia sobre la misma base de datos.
 
-   Una vez decidido el esquema, puede importarse en MySQL mediante MySQL Workbench o desde la línea de comandos con `mysql -u <usuario> -p < archivo.sql`.
+   Una vez decidido el esquema, puede importarse en MySQL mediante MySQL Workbench.
 
 4. Preparar el entorno Java: el `pom.xml` de `Gestor_ONG` indica Java 21 y Maven. El controlador JDBC de MySQL todavía no está configurado en dicho archivo, por lo que será necesario añadirlo cuando se implemente la conexión.
 
