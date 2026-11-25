@@ -72,7 +72,7 @@ Estos son los nombres y las rutas reales del código. El documento de análisis 
 
 ### Documentación del diseño de interfaces
 
-No existe un documento específico de diseño de ventanas (maquetas, disposición de controles o flujos detallados). El PDF `AnalisisyArquitectura.pdf` enumera las pantallas previstas en su apartado 2, pero no se ha añadido ningún diseño nuevo. Esta documentación deberá crearse cuando el equipo acuerde las interfaces.
+--PARTE DE NEREA
 
 ## Preparación inicial del proyecto y la base de datos
 
