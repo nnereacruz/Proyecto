@@ -40,30 +40,39 @@ Proyecto/
     │   └── ong.sql
     └── src/
         └── main/
-            └── java/
-                ├── Main.java
-                ├── modelo/
-                ├── datos/
-                ├── controlador/
-                └── vista/
+            ├── java/
+            │   ├── Main.java
+            │   ├── modelo/
+            │   ├── datos/
+            │   ├── controlador/
+            │   └── vista/
+            └── resources/
+                └── .gitkeep
 ```
 
 ### Contenido de las carpetas principales
 
-- **`documentacion/`**: documentación del proyecto. `componentes-tecnicos.md` describe tecnologías, arquitectura y organización prevista; `planificacion.md` recoge el reparto de tareas, el calendario y el orden de implementación.
-- **`Gestor_ONG/`**: proyecto Java inicial subido por una integrante. Incluye un `pom.xml` de Maven y una estructura de paquetes Java.
+- **`documentacion/`**: documentación del proyecto. `componentes-tecnicos.md` describe tecnologías, arquitectura y estructura real del código; `planificacion.md` recoge el reparto de tareas, el calendario y el orden de implementación.
+- **`Gestor_ONG/`**: proyecto Java inicial subido por una integrante. Incluye un `pom.xml` de Maven, las clases esqueleto y su propio script SQL.
 - **`Gestor_ONG/database/`**: script SQL aportado con el proyecto Java.
+- **`Gestor_ONG/src/main/resources/`**: carpeta de recursos de Maven, conservada con `.gitkeep` mientras no contenga archivos.
+
+Existen dos archivos `.gitignore`, uno en la raíz y otro dentro de `Gestor_ONG/`. Ambos son válidos: el de la raíz cubre al resto del repositorio y el de `Gestor_ONG/` añade exclusiones propias del proyecto Maven.
 
 ### Paquetes Java existentes
 
 Dentro de `Gestor_ONG/src/main/java/` se encuentran los paquetes:
 
-- **`modelo`**: clases previstas para representar usuarios, socios y donaciones.
-- **`datos`**: clase prevista para la conexión con la base de datos.
-- **`controlador`**: clases previstas para gestionar las acciones de la aplicación.
-- **`vista`**: clases previstas para las ventanas de la aplicación.
+- **`modelo`**: contiene `Usuario.java`, `Socio.java` y `Donacion.java`, esqueletos de las clases que representarán los datos.
+- **`datos`**: contiene `ConexionBD.java`, esqueleto de la futura conexión con la base de datos.
+- **`controlador`**: contiene `ControladorLogin.java`, `SocioController.java` y `DonacionController.java`.
+- **`vista`**: contiene `VentanaLogin.java`, `VentanaPrincipal.java`, `VentanaSocios.java` y `VentanaDonaciones.java`.
 
-Actualmente son estructuras iniciales: las clases están creadas pero todavía no contienen la funcionalidad de la aplicación. La documentación de componentes técnicos propone como referencia los paquetes `model`, `view`, `controller` y `database`; la nomenclatura definitiva se acordará antes de continuar el desarrollo.
+Estos son los nombres y las rutas reales del código. El documento de análisis propone otros nombres (`model`, `view`, `controller`, `database`), pero no se han renombrado ni eliminado clases o carpetas Java. Todavía no hay funcionalidad implementada.
+
+### Documentación del diseño de interfaces
+
+No existe un documento específico de diseño de ventanas (maquetas, disposición de controles o flujos detallados). El PDF `AnalisisyArquitectura.pdf` enumera las pantallas previstas en su apartado 2, pero no se ha añadido ningún diseño nuevo. Esta documentación deberá crearse cuando el equipo acuerde las interfaces.
 
 ## Preparación inicial del proyecto y la base de datos
 
@@ -75,11 +84,12 @@ Actualmente son estructuras iniciales: las clases están creadas pero todavía n
 
 2. Revisar `AnalisisyArquitectura.pdf` y los documentos de `documentacion/` antes de modificar código.
 
-3. Revisar los scripts SQL disponibles. Hay dos:
-   - `tablas_gestion_socios.sql`, en la raíz: creación de las tablas `usuario`, `socio` y `donacion`.
-   - `Gestor_ONG/database/ong.sql`: creación de la base de datos `gestor_ong`, sus tablas y datos de prueba.
+3. Utilizar el script SQL adecuado. Hay dos archivos con estructuras diferentes:
 
-   Todavía no se ha acordado cuál de los dos será el esquema oficial del proyecto, por lo que no deben importarse ambos sobre la misma base de datos sin revisión previa. Una vez acordado, el script elegido puede importarse en MySQL mediante MySQL Workbench o desde la línea de comandos con `mysql -u <usuario> -p < archivo.sql`.
+   - **`tablas_gestion_socios.sql` (raíz): esquema de referencia.** Crea `usuario`, `socio` y `donacion` con los campos del modelo descrito en el análisis (`dni`, `email`, `importe`, `concepto`, entre otros). Al coincidir con el PDF, es el archivo que debe utilizarse como punto de partida mientras el equipo no acuerde lo contrario.
+   - **`Gestor_ONG/database/ong.sql`**: esquema aportado con el proyecto Java. Crea la base de datos `gestor_ong`, sus tablas y datos de prueba, e incluye elementos que no aparecen en el análisis, como un campo `rol` de usuario y donaciones sin socio asociado. Debe revisarse antes de usar; no debe importarse junto con el esquema de referencia sobre la misma base de datos.
+
+   Una vez decidido el esquema, puede importarse en MySQL mediante MySQL Workbench o desde la línea de comandos con `mysql -u <usuario> -p < archivo.sql`.
 
 4. Preparar el entorno Java: el `pom.xml` de `Gestor_ONG` indica Java 21 y Maven. El controlador JDBC de MySQL todavía no está configurado en dicho archivo, por lo que será necesario añadirlo cuando se implemente la conexión.
 
