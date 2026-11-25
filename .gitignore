@@ -1,0 +1,43 @@
+# Java: archivos compilados
+*.class
+
+# Carpetas de compilación y construcción
+bin/
+build/
+out/
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# NetBeans
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# Archivos temporales del sistema y del editor
+*.tmp
+*.temp
+*~
+.#*
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Configuración local y credenciales
+.env
+.env.*
+*.local
+*.local.properties
+application-local.*
+config/local/
+
+# Nota: no se ignoran los archivos SQL, el PDF ni la documentación del proyecto.
