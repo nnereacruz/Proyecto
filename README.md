@@ -105,3 +105,4 @@ Estos son los nombres y las rutas reales del código. El documento de análisis 
 - Mantener la documentación actualizada cuando se añadan funcionalidades.
 
 El reparto de tareas y el calendario previsto se encuentran en `documentacion/planificacion.md`.
+ //prueba branch 
